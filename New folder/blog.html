@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="blog.css">
+    <title>Simple Blog</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Blog</h1>
+        <form id="blogForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+            
+            <label for="content">Content:</label>
+            <textarea id="content" required></textarea>
+            
+            <label for="image">Image URL (optional):</label>
+            <input type="text" id="image">
+        
+            <button type="button" onclick="savePost()">Save Post</button>
+        </form>
+        <div id="blogTitleList"></div>
+    </div>
+
+    <div class="lower-container">
+        <h2>Full Blog Posts</h2>
+        <div id="lowerBlogList"></div>
+    </div>
+    <script src="blog.js"></script>
+</body>
+</html>
