@@ -27,45 +27,43 @@
     <script src="js/script.js"></script>
     <div class="container">
         <h1>Simple Blog</h1>
-        
-        <!-- Display Blog Posts in a Table -->
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $database = "blog";
-                    $conn = mysqli_connect($servername, $username, $password, $database);
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                $sql = "SELECT `title`, `image` FROM `blog`";
-                $result = mysqli_query($conn, $sql);
+<div class="blog-container">
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "blog";
+    $conn = mysqli_connect($servername, $username, $password, $database);
 
-                if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>";
-                        echo "<td>" . $row['title'] . "</td>";
-                        echo "<td><img src='" . $row['image'] . "' alt='Blog Image' style='max-width: 100px; max-height: 100px;'></td>";
-                        echo "</tr>";
-                    }
-                    mysqli_free_result($result);
-                } else {
-                    echo 'Error fetching data: ' . mysqli_error($conn);
-                }
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-                // Close the connection
-                mysqli_close($conn);
-                ?>
-            </tbody>
-        </table>
+    $sql = "SELECT `title`, `image` FROM `blog2`";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<div class='blog-post'>";
+            echo "<h2>" . $row['title'] . "</h2>";
+            
+            // Check if the image is present
+            if (!empty($row['image'])) {
+                echo "<img src='" . $row['image'] . "' alt='Blog Image'>";
+            } else {
+                echo "<p>Image not available</p>";
+            }
+            
+            echo "</div>";
+        }
+        mysqli_free_result($result);
+    } else {
+        echo 'Error fetching data: ' . mysqli_error($conn);
+    }
+
+    // Close the connection
+    mysqli_close($conn);
+?>
     </div>
     <button><a href='http://localhost/new%20folder/blog.php'>go to blogs</button>
             </tbody>

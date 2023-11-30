@@ -19,7 +19,7 @@
             <label for="image">Image URL (optional):</label>
             <input type="text" id="image" name='image'>
         
-            <button type="submit" onclick="savePost()">Save Post</button>
+            <button type="submit" onclick='savePost()'>Save Post</button>
         </form>
         <div id="blogTitleList"></div>
     </div>
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Use prepared statements to insert data safely
-    $sql = "INSERT INTO `blog`(`title`, `image`) VALUES (?, ?)";
+    $sql = "INSERT INTO `blog2`(`title`, `image`) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt) {
