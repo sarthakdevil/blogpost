@@ -19,7 +19,7 @@
             <label for="image">Image URL (optional):</label>
             <input type="text" id="image" name='image'>
         
-            <button type="submit" onclick='savePost()'>Save Post</button>
+            <button type="submit" onclick='saPost()'>Save Post</button>
         </form>
         <div id="blogTitleList"></div>
     </div>
