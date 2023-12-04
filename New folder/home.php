@@ -65,7 +65,7 @@
     mysqli_close($conn);
 ?>
     </div>
-    <button><a href='http://localhost/new%20folder/blog.php'>go to blogs</button>
+    <button><a href='http://localhost/new%20folder/index.php'>go to blogs</button>
             </tbody>
         </table>
     </div>
